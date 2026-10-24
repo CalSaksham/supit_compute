@@ -1,0 +1,17 @@
+dist/
+.DS_Store
+node_modules/
+.venv/
+__pycache__/
+*.pyc
+.env
+.env.*
+!.env.example
+data/
+runtime/
+evidence/
+results/
+*.pem
+*.key
+*.sqlite*
+.openai/
