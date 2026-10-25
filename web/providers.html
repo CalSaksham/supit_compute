@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f5f6ef"><meta name="description" content="Compare GPU cloud providers on SemiAnalysis ClusterMAX ratings and SUPIT deal data, filtered by GPU, budget, term and deposit."><title>SUPIT — Find a provider</title><link rel="icon" href="/supit-mark.svg" type="image/svg+xml"><link rel="stylesheet" href="/site.css?v=2"><link rel="stylesheet" href="/providers.css?v=4"></head>
+<body>
+<header class="site-header"><a class="wordmark" href="/" aria-label="SUPIT home"><svg viewBox="0 0 28 30" aria-hidden="true"><path d="M2 7 14 1l12 6v16l-12 6-12-6Z"/><path d="m2 7 12 6 12-6M14 13v16M8 4l12 6v10l-6 3-6-3v-7"/></svg>SUPIT<span class="wordmark-period">.</span></a><nav class="desktop-nav" aria-label="Main navigation"><a href="/#how">How it works</a><a href="/providers.html" aria-current="page">Find a provider</a><a href="/demo.html">Try the demo</a></nav><a class="button header-cta" href="https://calendly.com/madhavsh-wharton/supit-compute-product-demo-madhav-shar-a" data-book>Book a pilot <span>↗</span></a><button id="menu-toggle" class="menu-toggle" aria-label="Open navigation" aria-expanded="false"><span></span><span></span></button><nav id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation" hidden><a href="/#how">How it works</a><a href="/providers.html">Find a provider</a><a href="/demo.html">Try the demo</a><a href="https://calendly.com/madhavsh-wharton/supit-compute-product-demo-madhav-shar-a" data-book>Book a pilot ↗</a></nav></header>
+<main class="section-shell finder">
+<section class="finder-head"><div><div class="eyebrow"><span class="status-dot"></span>FIND A PROVIDER</div><h1>Pick a provider on <span class="serif-word">evidence,</span><br>not reputation.</h1><p>Expert ratings from SemiAnalysis ClusterMAX, combined with what SUPIT measures on real deals: on-time delivery, handover results, uptime, speed and whether credits were paid.</p></div>
+<div class="data-note"><strong>About this data</strong><p><b>ClusterMAX tiers</b> are from SemiAnalysis ClusterMAX 3.0 (Sep 2026). <b>Prices, deposits and terms</b> are placeholder estimates. <b>SUPIT scores</b> are sample data until our first deals report.</p><label class="sample-toggle"><input type="checkbox" id="sample-toggle" checked><span>Show sample SUPIT deal data</span></label><div class="demo-deal-note" id="demo-deal-note" hidden><span class="status-dot"></span><span id="demo-deal-text"></span><a href="/demo.html#claim">Open the demo ↗</a><button type="button" id="demo-deal-clear">Clear</button></div></div></section>
+
+<section class="filters" aria-label="Filters"><div class="filter-row">
+<label class="f-field f-search"><span>Search</span><input type="search" id="f-search" placeholder="Provider name"></label>
+<label class="f-field"><span>Workload</span><select id="f-workload"><option value="inference">Inference</option><option value="training">Training</option></select></label>
+<label class="f-field"><span>GPU</span><select id="f-gpu"><option value="">Any</option><option>H100</option><option>H200</option><option>B200</option><option value="GB200">GB200 / GB300</option><option value="AMD">AMD MI300X / MI355X</option></select></label>
+<label class="f-field"><span>Term</span><select id="f-term"><option value="">Any</option><option value="od">On-demand</option><option value="short">Reserved, 1–6 months</option><option value="long">Reserved, 12+ months</option></select></label>
+<label class="f-field"><span>Region</span><select id="f-region"><option value="">Any</option><option>US</option><option>EU</option><option>Asia</option></select></label>
+<label class="f-field"><span>Software</span><select id="f-software"><option value="">Any</option><option>Kubernetes</option><option>Slurm</option></select></label>
+</div><div class="filter-row">
+<label class="f-field f-range"><span>Max price <b id="f-price-out">$4.00</b> / GPU-hr</span><input type="range" id="f-price" min="1.5" max="4" step="0.05" value="4"></label>
+<label class="f-field"><span>Max deposit</span><select id="f-deposit"><option value="100">Any</option><option value="0">None</option><option value="10">Up to 10%</option><option value="20">Up to 20%</option><option value="30">Up to 30%</option></select></label>
+<label class="f-field"><span>Min ClusterMAX tier</span><select id="f-tier"><option value="0">Any</option><option value="5">Platinum</option><option value="4">Gold</option><option value="3">Silver</option><option value="2">Bronze</option></select></label>
+<label class="f-field f-gpus"><span>Your cluster</span><div class="f-inline"><input type="number" id="f-count" min="8" max="2048" step="8" value="128"><em>GPUs</em></div></label>
+<label class="f-check"><input type="checkbox" id="f-supit"><span>Accepts SUPIT contract terms</span></label>
+<label class="f-field f-sort"><span>Sort by</span><select id="f-sort"><option value="combined">Combined score</option><option value="cm">ClusterMAX</option><option value="supit">SUPIT score</option><option value="price">Price, low to high</option></select></label>
+</div></section>
+
+<section class="results"><div class="results-head"><span id="result-count">—</span><button class="reset" id="f-reset">Reset filters</button></div>
+<div class="table-wrap"><table class="provider-table"><thead><tr><th>Provider</th><th>ClusterMAX 3.0</th><th>SUPIT score</th><th>Combined</th><th>Price / GPU-hr</th><th>Term · deposit</th><th class="center">SUPIT terms</th><th class="center">Shortlist</th></tr></thead><tbody id="provider-rows"></tbody></table></div>
+<div class="empty" id="empty" hidden><strong>No providers match.</strong><p>Loosen a filter, or raise the maximum price.</p></div></section>
+
+
+</main>
+<div class="shortlist-bar" id="shortlist-bar" hidden><div><strong id="shortlist-count">0 shortlisted</strong><span id="shortlist-names"></span></div><a class="button button-dark" href="/demo.html#deal">Start a bake-off <span>↗</span></a></div>
+<div class="drawer-overlay" id="drawer-overlay" hidden></div><aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="drawer-title" hidden></aside>
+<footer class="site-footer section-shell"><div class="footer-bottom"><span>© 2026 SUPIT</span><span>ClusterMAX™ ratings © SemiAnalysis, shown for reference with attribution; SUPIT is not affiliated. Other data on this page is placeholder or sample data.</span><a href="#">Back to top ↑</a></div></footer>
+<script type="module" src="/providers.js?v=4"></script><script type="module" src="/booking.js?v=1"></script>
+</body></html>

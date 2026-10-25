@@ -1,20 +1,37 @@
-deal: acme-providerA-demo
-buyer: Acme Labs (demo)
-provider: Provider A
+deal: zorbe-lambda-demo
+buyer: Zorbe (demo)
+provider: Lambda
+provider_id: lambda
 cluster: {gpus: 8, sku: H100-SXM-80GB, nodes: 1}
+workload: {type: inference, serves: customer-owned specialized models, model: llama-3.1-70b-instruct, precision: fp8, tensor_parallel: 8}
 price_per_gpu_hour: 2.20
 handover:
-  bar: bakeoff/providerA.json
+  bar: bakeoff/lambda.json
   per_gpu: {gemm_bf16_vs_bar: '>= 0.95', hbm_bw_vs_bar: '>= 0.95'}
+  inference: {output_tokens_per_sec_per_gpu_vs_bar: '>= 0.95', p95_latency_ms: '<= 500'}
   dcgm_diag_level: 2
   burn_in_minutes: 10
   forbidden_xids: [48, 63, 64, 74, 79, 92, 94, 95, 119]
   require: {ecc_enabled: true, mig_disabled: true, no_foreign_processes: true}
-holdback: {share_of_invoice: 0.10, held_by: buyer}
+performance:
+  output_tokens_per_sec_per_gpu: '>= 990'
+  p95_latency_ms: '<= 500'
+  measured_by: gateway
+  window_seconds: 60
+delivery:
+  definition: handover_passed
+  grace_days: 3
+  late_credit_per_day: 0.01   # share of one month's bill, per day late after the grace period
+  walk_away_after_days: 14
+  cover: seller_pays_replacement_premium
+  milestones: [gpu_serials_registered, racks_powered, network_cabled, early_access_burn_in]
+  runner_up: {provider: CoreWeave, held_until: handover}
 uptime_target: 0.99
-speed_floor: {gpu_speed_vs_bar: '>= 0.90', grace_seconds: 60}
-credits: {downtime: per_minute_of_contracted_price, slow: half_price_while_below_floor}
+holdback: {share_of_invoice: 0.10, held_by: buyer}
+credits:
+  downtime: {rate: full_price, basis: all_gpus_serving_the_model}
+  slow: {rate: half_price, basis: all_gpus_serving_the_model, while: below_performance_floor}
 rescue: {paid_by: provider_on_provider_fault}
-backup: {secondary: Provider B, serverless: together}
+backup: {secondary: CoreWeave, serverless: Together AI}
 # Demo estimates only; replace these with the actual backup deal and API rate.
-demo_backup_pricing: {secondary_per_gpu_hour: 3.40, serverless_per_million_tokens: 0.20, tokens_per_request: 240}
+demo_backup_pricing: {secondary_per_gpu_hour: 2.95, serverless_per_million_tokens: 0.20, tokens_per_request: 240}

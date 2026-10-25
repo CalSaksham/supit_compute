@@ -1,0 +1,46 @@
+{
+  "updated": "2026-10-24",
+  "clustermax": {
+    "version": "3.0",
+    "published": "2026-09-23",
+    "url": "https://newsletter.semianalysis.com/p/clustermax-30-the-industry-standard",
+    "site": "https://www.clustermax.ai/"
+  },
+  "notes": {
+    "clustermax": "Tier per SemiAnalysis ClusterMAX 3.0. Verify against clustermax.ai before publishing.",
+    "commercial": "price, depositPct, minTermMonths, gpus, regions, software and fabric are placeholder estimates for the prototype, not verified provider facts.",
+    "sample": "sample blocks are invented to demonstrate the SUPIT score. Replace with measured deal data."
+  },
+  "providers": [
+    {"id": "coreweave", "name": "CoreWeave", "cm": "Platinum", "gpus": ["H100", "H200", "B200", "GB200"], "regions": ["US", "EU"], "terms": {"od": false, "short": true, "long": true}, "minTermMonths": 3, "depositPct": 25, "price": 2.95, "software": ["Kubernetes", "Slurm"], "fabric": true,
+     "sample": {"deals": 2, "gpuHours": 38000, "onTime": 100, "handoverFirstPass": 100, "uptime": 99.92, "speedVsContract": 1.01, "creditsPaid": 100, "supitTerms": false}},
+    {"id": "nebius", "name": "Nebius", "cm": "Platinum", "gpus": ["H100", "H200", "B200", "GB200"], "regions": ["US", "EU"], "terms": {"od": true, "short": true, "long": true}, "minTermMonths": 0, "depositPct": 15, "price": 2.75, "software": ["Kubernetes", "Slurm"], "fabric": true,
+     "sample": {"deals": 3, "gpuHours": 61000, "onTime": 100, "handoverFirstPass": 92, "uptime": 99.88, "speedVsContract": 1.0, "creditsPaid": 100, "supitTerms": true}},
+    {"id": "oracle", "name": "Oracle Cloud", "cm": "Gold", "gpus": ["H100", "H200", "B200", "GB200", "AMD"], "regions": ["US", "EU", "Asia"], "terms": {"od": true, "short": true, "long": true}, "minTermMonths": 0, "depositPct": 10, "price": 3.2, "software": ["Kubernetes", "Slurm"], "fabric": true, "sample": null},
+    {"id": "gcp", "name": "Google Cloud", "cm": "Gold", "gpus": ["H100", "H200", "B200", "GB200"], "regions": ["US", "EU", "Asia"], "terms": {"od": true, "short": true, "long": true}, "minTermMonths": 0, "depositPct": 0, "price": 3.6, "software": ["Kubernetes", "Slurm"], "fabric": true, "sample": null},
+    {"id": "lambda", "name": "Lambda", "cm": "Silver", "gpus": ["H100", "H200", "B200", "GB200"], "regions": ["US"], "terms": {"od": true, "short": true, "long": true}, "minTermMonths": 0, "depositPct": 20, "price": 2.49, "software": ["Kubernetes", "Slurm"], "fabric": true,
+     "sample": {"deals": 6, "gpuHours": 142000, "onTime": 83, "handoverFirstPass": 92, "uptime": 99.81, "speedVsContract": 0.99, "creditsPaid": 100, "supitTerms": true}},
+    {"id": "azure", "name": "Microsoft Azure", "cm": "Silver", "gpus": ["H100", "H200", "GB200", "AMD"], "regions": ["US", "EU", "Asia"], "terms": {"od": true, "short": true, "long": true}, "minTermMonths": 0, "depositPct": 0, "price": 3.9, "software": ["Kubernetes", "Slurm"], "fabric": true, "sample": null},
+    {"id": "tensorwave", "name": "TensorWave", "cm": "Silver", "gpus": ["AMD"], "regions": ["US"], "terms": {"od": false, "short": true, "long": true}, "minTermMonths": 6, "depositPct": 25, "price": 1.95, "software": ["Kubernetes", "Slurm"], "fabric": true,
+     "sample": {"deals": 1, "gpuHours": 9000, "onTime": 100, "handoverFirstPass": 100, "uptime": 99.6, "speedVsContract": 0.97, "creditsPaid": 100, "supitTerms": true}},
+    {"id": "gmi", "name": "GMI Cloud", "cm": "Silver", "gpus": ["H100", "H200", "B200", "GB200"], "regions": ["US", "Asia"], "terms": {"od": true, "short": true, "long": true}, "minTermMonths": 0, "depositPct": 20, "price": 2.1, "software": ["Kubernetes"], "fabric": true,
+     "sample": {"deals": 4, "gpuHours": 88000, "onTime": 100, "handoverFirstPass": 96, "uptime": 99.86, "speedVsContract": 1.0, "creditsPaid": 100, "supitTerms": true}},
+    {"id": "firmus", "name": "Firmus", "cm": "Silver", "gpus": ["H100", "H200", "GB200"], "regions": ["Asia"], "terms": {"od": false, "short": false, "long": true}, "minTermMonths": 12, "depositPct": 30, "price": 2.3, "software": ["Kubernetes", "Slurm"], "fabric": true, "sample": null},
+    {"id": "together", "name": "Together AI", "cm": "Bronze", "gpus": ["H100", "H200", "B200", "GB200"], "regions": ["US"], "terms": {"od": true, "short": true, "long": true}, "minTermMonths": 0, "depositPct": 15, "price": 2.4, "software": ["Kubernetes", "Slurm"], "fabric": true,
+     "sample": {"deals": 5, "gpuHours": 120000, "onTime": 80, "handoverFirstPass": 85, "uptime": 99.42, "speedVsContract": 0.95, "creditsPaid": 67, "supitTerms": false}},
+    {"id": "crusoe", "name": "Crusoe", "cm": "Bronze", "gpus": ["H100", "H200", "GB200", "AMD"], "regions": ["US", "EU"], "terms": {"od": false, "short": true, "long": true}, "minTermMonths": 6, "depositPct": 25, "price": 2.6, "software": ["Kubernetes", "Slurm"], "fabric": true,
+     "sample": {"deals": 3, "gpuHours": 70000, "onTime": 67, "handoverFirstPass": 80, "uptime": 99.55, "speedVsContract": 0.98, "creditsPaid": 50, "supitTerms": false}},
+    {"id": "aws", "name": "Amazon Web Services", "cm": "Bronze", "gpus": ["H100", "H200", "B200", "GB200"], "regions": ["US", "EU", "Asia"], "terms": {"od": true, "short": true, "long": true}, "minTermMonths": 0, "depositPct": 0, "price": 3.9, "software": ["Kubernetes", "Slurm"], "fabric": true, "sample": null},
+    {"id": "verda", "name": "Verda (DataCrunch)", "cm": "Bronze", "gpus": ["H100", "H200", "B200"], "regions": ["EU"], "terms": {"od": true, "short": true, "long": true}, "minTermMonths": 0, "depositPct": 10, "price": 2.05, "software": ["Kubernetes"], "fabric": true,
+     "sample": {"deals": 2, "gpuHours": 21000, "onTime": 100, "handoverFirstPass": 100, "uptime": 99.78, "speedVsContract": 0.99, "creditsPaid": 100, "supitTerms": true}},
+    {"id": "hyperstack", "name": "Hyperstack", "cm": "Bronze", "gpus": ["H100", "H200", "B200"], "regions": ["US", "EU"], "terms": {"od": true, "short": true, "long": true}, "minTermMonths": 0, "depositPct": 10, "price": 1.95, "software": ["Kubernetes"], "fabric": true,
+     "sample": {"deals": 2, "gpuHours": 26000, "onTime": 50, "handoverFirstPass": 88, "uptime": 99.5, "speedVsContract": 0.96, "creditsPaid": 100, "supitTerms": true}},
+    {"id": "digitalocean", "name": "DigitalOcean", "cm": "Bronze", "gpus": ["H100", "H200", "AMD"], "regions": ["US", "EU"], "terms": {"od": true, "short": true, "long": false}, "minTermMonths": 0, "depositPct": 0, "price": 2.99, "software": ["Kubernetes"], "fabric": false, "sample": null},
+    {"id": "runpod", "name": "Runpod", "cm": "Participation Ribbon", "gpus": ["H100", "H200", "B200"], "regions": ["US", "EU"], "terms": {"od": true, "short": true, "long": false}, "minTermMonths": 0, "depositPct": 0, "price": 2.19, "software": ["Kubernetes"], "fabric": false,
+     "sample": {"deals": 4, "gpuHours": 54000, "onTime": 100, "handoverFirstPass": 90, "uptime": 99.7, "speedVsContract": 0.98, "creditsPaid": 100, "supitTerms": true}},
+    {"id": "vultr", "name": "Vultr", "cm": "Participation Ribbon", "gpus": ["H100", "H200", "GB200", "AMD"], "regions": ["US", "EU", "Asia"], "terms": {"od": true, "short": true, "long": true}, "minTermMonths": 0, "depositPct": 10, "price": 2.3, "software": ["Kubernetes"], "fabric": true,
+     "sample": {"deals": 1, "gpuHours": 6000, "onTime": 100, "handoverFirstPass": 100, "uptime": 99.65, "speedVsContract": 0.97, "creditsPaid": 100, "supitTerms": false}},
+    {"id": "vastai", "name": "Vast.ai", "cm": "Participation Ribbon", "gpus": ["H100", "H200"], "regions": ["US", "EU", "Asia"], "terms": {"od": true, "short": false, "long": false}, "minTermMonths": 0, "depositPct": 0, "price": 1.65, "software": [], "fabric": false,
+     "sample": {"deals": 2, "gpuHours": 15000, "onTime": 100, "handoverFirstPass": 70, "uptime": 99.1, "speedVsContract": 0.92, "creditsPaid": 0, "supitTerms": false}}
+  ]
+}
